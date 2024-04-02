@@ -1,7 +1,6 @@
-package lib
+package GoWagerBrain
 
 import (
-	"github.com/paulschick/go-wager-brain/lib/helpers"
 	"testing"
 )
 
@@ -19,8 +18,8 @@ func TestAmericanOddsFromDecimal(t *testing.T) {
 	}
 
 	run := func(expected float64, odds float64) bool {
-		actual := helpers.Round(AmericanOddsFromDecimal(odds), 0)
-		exp := helpers.Round(expected, 0)
+		actual := Round(AmericanOddsFromDecimal(odds), 0)
+		exp := Round(expected, 0)
 		if actual != exp {
 			return false
 		}
@@ -46,8 +45,8 @@ func TestAmericanOddsFromFractional(t *testing.T) {
 	}
 	run := func(in string, exp float64) bool {
 		actual, err := AmericanOddsFromFractional(in)
-		actualRound := helpers.Round(actual, 2)
-		expectedRound := helpers.Round(exp, 2)
+		actualRound := Round(actual, 2)
+		expectedRound := Round(exp, 2)
 		if err != nil {
 			return false
 		}
@@ -75,8 +74,8 @@ func TestDecimalOddsFromAmerican(t *testing.T) {
 		1800:    19.0,
 	}
 	run := func(american, expectedDecimal float64) bool {
-		actual := helpers.Round(DecimalOddsFromAmerican(american), 2)
-		expected := helpers.Round(expectedDecimal, 2)
+		actual := Round(DecimalOddsFromAmerican(american), 2)
+		expected := Round(expectedDecimal, 2)
 		if actual != expected {
 			return false
 		}
@@ -99,8 +98,8 @@ func TestDecimalOddsFromFractional(t *testing.T) {
 		"8/11": 1.73,
 	}
 	run := func(toTest string, expected float64) bool {
-		actual := helpers.Round(DecimalOddsFromFractional(toTest), 2)
-		expectedRound := helpers.Round(expected, 2)
+		actual := Round(DecimalOddsFromFractional(toTest), 2)
+		expectedRound := Round(expected, 2)
 		if actual != expectedRound {
 			return false
 		}
@@ -117,7 +116,7 @@ func TestDecimalOddsFromFractional(t *testing.T) {
 func TestParlayOddsFromDecimal(t *testing.T) {
 	testVals := []float64{2.1, 1.5, 2.2, 1.2}
 	expected := 8.32
-	result := helpers.Round(ParlayOddsFromDecimal(testVals), 2)
+	result := Round(ParlayOddsFromDecimal(testVals), 2)
 	if result != expected {
 		t.Errorf("expected %f, got %f", expected, result)
 	}
@@ -126,7 +125,7 @@ func TestParlayOddsFromDecimal(t *testing.T) {
 func TestParlayOddsFromAmerican(t *testing.T) {
 	odds := []float64{110, -200, 120, -500}
 	expected := 8.32
-	result := helpers.Round(ParlayOddsFromAmerican(odds), 2)
+	result := Round(ParlayOddsFromAmerican(odds), 2)
 	if result != expected {
 		t.Errorf("expected %f, got %f", expected, result)
 	}

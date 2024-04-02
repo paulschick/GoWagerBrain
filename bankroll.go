@@ -1,4 +1,4 @@
-package lib
+package GoWagerBrain
 
 func BasicKellyFromDecimalOdds(probability, odds, kellySize float64) float64 {
 	b := odds - 1

@@ -1,4 +1,4 @@
-package lib
+package GoWagerBrain
 
 import (
 	"fmt"

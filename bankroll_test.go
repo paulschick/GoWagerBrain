@@ -1,7 +1,6 @@
-package lib
+package GoWagerBrain
 
 import (
-	"github.com/paulschick/go-wager-brain/lib/helpers"
 	"testing"
 )
 
@@ -14,8 +13,8 @@ type kellySetup struct {
 
 func runHelper(setup kellySetup, testFn func(a, b, c float64) float64) (float64, bool) {
 	actual := testFn(setup.Prob, setup.Odds, setup.KellySize)
-	actual = helpers.Round(actual, 4)
-	expected := helpers.Round(setup.Exp, 4)
+	actual = Round(actual, 4)
+	expected := Round(setup.Exp, 4)
 	if actual != expected {
 		return actual, false
 	}

@@ -12,4 +12,9 @@ func TestVig(t *testing.T) {
 	if result != expected {
 		t.Errorf("Expected %f, got %f", expected, result)
 	}
+
+	testZero := Vig(10000, 0, 0, 1000)
+	if testZero != 0 {
+		t.Errorf("Expected 0, got %f", testZero)
+	}
 }

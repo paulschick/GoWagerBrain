@@ -7,6 +7,10 @@ func Round(value float64, decimals int) float64 {
 		return 0
 	}
 
+	if decimals < 0 {
+		return value
+	}
+
 	if decimals > 0 && value == math.Trunc(value) {
 		return value
 	}

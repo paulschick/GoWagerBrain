@@ -8,9 +8,14 @@ import (
 )
 
 func AmericanOddsFromDecimal(odds float64) float64 {
+	if odds == 1 {
+		return 0
+	}
+
 	if odds > 2.0 {
 		return (odds - 1) * 100
 	}
+
 	return -100 / (odds - 1)
 }
 
@@ -88,4 +93,19 @@ func ParlayOddsFromAmerican(odds []float64) float64 {
 		oddsProduct *= DecimalOddsFromAmerican(odd)
 	}
 	return oddsProduct
+}
+
+func ParlayOdds(odds []float64, stake float64, oddsType OddsType) float64 {
+	if len(odds) == 0 || stake == 0 || (oddsType != Decimal && oddsType != American) {
+		return 0
+	}
+
+	var parlayOdds float64
+	if oddsType == Decimal {
+		parlayOdds = ParlayOddsFromDecimal(odds)
+	} else {
+		parlayOdds = ParlayOddsFromAmerican(odds)
+	}
+
+	return parlayOdds
 }

@@ -51,3 +51,21 @@ func GetProfit(stake, odds float64, oddsType OddsType) float64 {
 	}
 	return 0
 }
+
+func ParlayProfit(odds []float64, stake float64, oddsType OddsType) float64 {
+	parlayOdds := ParlayOdds(odds, stake, oddsType)
+	if parlayOdds == 0 {
+		return 0
+	}
+
+	return (parlayOdds * stake) - stake
+}
+
+func ParlayPayout(odds []float64, stake float64, oddsType OddsType) float64 {
+	parlayOdds := ParlayOdds(odds, stake, oddsType)
+	if parlayOdds == 0 {
+		return 0
+	}
+
+	return parlayOdds * stake
+}

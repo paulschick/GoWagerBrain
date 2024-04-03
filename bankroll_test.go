@@ -27,6 +27,8 @@ func TestBasicKellyFromDecimalOdds(t *testing.T) {
 		{2.1, 0.55, 0.0705, 0.5},
 		{1.4, 0.75, 0.1250, 1.0},
 		{1.4, 0.75, 0.0750, 0.6},
+		{1, 0.5, 0, 1.0},
+		{0, 0.5, 0, 1.0},
 	}
 
 	for _, setup := range kellySetups {

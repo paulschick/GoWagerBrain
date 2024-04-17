@@ -1,3 +1,6 @@
+// Copyright (c) Paul Schick
+// SPDX-License-Identifier: MPL-2.0
+
 package GoWagerBrain
 
 func BasicKellyFromDecimalOdds(probability, odds, kellySize float64) float64 {

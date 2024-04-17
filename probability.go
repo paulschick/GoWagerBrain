@@ -1,3 +1,6 @@
+// Copyright (c) Paul Schick
+// SPDX-License-Identifier: MPL-2.0
+
 package GoWagerBrain
 
 func DecimalImpliedWinProb(odds float64, decimals int) float64 {
